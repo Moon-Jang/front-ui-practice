@@ -59,8 +59,24 @@ main {
     height: calc(100% - 48px);
     background-color: yellow;
     z-index: 0;
+    position: relative;
 }
-.control {
+
+.slider > .item {
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+}
+
+.slider > .item.active {
+    display: block;
+}
+.controller {
     position: absolute;
     top: 0;
     left: 0;
@@ -71,7 +87,7 @@ main {
     justify-content: space-between;
 }
 
-.control > button {
+.controller > button {
     height: 100%;
     width: 5%;
     min-width: 32px;
@@ -85,20 +101,20 @@ main {
     cursor: pointer;
 }
 
-.control > button:hover > label {
+.controller > button:hover > label {
     filter: invert(1.2);
 }
 
-.control > button:focus {
+.controller > button:focus {
     outline: 0;
 }
 
-.control .icon {
+.controller .icon {
     width: 75%;
     cursor: pointer;
 }
 
-.control .icon::after {
+.controller .icon::after {
     display: block;
     content: "";
     padding-bottom: 100%;
