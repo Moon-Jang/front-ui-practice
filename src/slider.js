@@ -1,8 +1,6 @@
-console.log("hello world!")
-
+import { clearElement, $ } from "./util.js"
 let curIdx = 0;
 let itemSize = 0;
-
 class Slider {
     $slider = null
 
@@ -15,6 +13,7 @@ class Slider {
 
     renderItems() {
         console.log(this.items)
+        clearElement(this.$slider)
         this.items.forEach( (item,idx) => {
             const $item = new Item(item,idx).element
             this.$slider.appendChild($item)
@@ -51,8 +50,6 @@ const images = [
     { name: "milky way", url: "https://cdn.pixabay.com/photo/2015/10/12/14/59/milky-way-984050__340.jpg" },
 ]
 
-const slider = new Slider(document.querySelector(".slider"),images)
-
 class Controller {
     $controller = null
     $prevBtn = null
@@ -73,6 +70,7 @@ class Controller {
             curIdx--
         }
         slider.render()
+        indicators.render()
     }
     clickNextBtn(e) {
         if ( curIdx + 1 > itemSize - 1 ) {
@@ -81,12 +79,11 @@ class Controller {
             curIdx++
         }
         slider.render()
+        indicators.render()
     }
-    render() {
-    }
-}
 
-const controller = new Controller(document.querySelector(".controller"))
+    render() {}
+}
 
 class IndicatorWrap {
     $indicatorWrap = null
@@ -97,15 +94,32 @@ class IndicatorWrap {
     }
 
     renderIndicator() {
+        clearElement(this.$indicatorWrap)
         for( let i = 0; i < itemSize; i++ ) {
-            
+            const indicator = new Indicator(i)
+            this.$indicatorWrap.appendChild(indicator.element)
         }
     }
 
     render() {
-
+        this.renderIndicator()
     }
 }
 class Indicator {
+    element = null
 
+    constructor(idx) {
+        this.idx = idx
+        this.render()
+    }
+    
+    render() {
+        const $indicator = document.createElement("li")
+        $indicator.className = this.idx === curIdx ? `indicator selected` : `indicator`
+        this.element = $indicator
+    }
 }
+
+const slider = new Slider($(".slider"),images)
+const indicators = new IndicatorWrap($(".indicators"))
+const controller = new Controller($(".controller"))
