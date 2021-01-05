@@ -1,6 +1,7 @@
 console.log("hello world!")
 
 let curIdx = 0;
+let itemSize = 0;
 
 class Slider {
     $slider = null
@@ -8,6 +9,7 @@ class Slider {
     constructor(target,items){
         this.items = items
         this.$slider = target
+        itemSize = items.length
         this.render()
     }
 
@@ -49,8 +51,61 @@ const images = [
     { name: "milky way", url: "https://cdn.pixabay.com/photo/2015/10/12/14/59/milky-way-984050__340.jpg" },
 ]
 
-new Slider(document.querySelector(".slider"),images)
+const slider = new Slider(document.querySelector(".slider"),images)
 
 class Controller {
+    $controller = null
+    $prevBtn = null
+    $nextBtn = null
+
+    constructor(target){
+        this.$controller = target
+        this.$prevBtn = document.getElementById("prevBtn")
+        this.$nextBtn = document.getElementById("nextBtn")
+        this.$prevBtn.addEventListener("click",this.clickPrevBtn)
+        this.$nextBtn.addEventListener("click",this.clickNextBtn)
+        this.render()
+    }
+    clickPrevBtn(e) {
+        if ( curIdx - 1 < 0 ) {
+            curIdx = itemSize - 1
+        } else {
+            curIdx--
+        }
+        slider.render()
+    }
+    clickNextBtn(e) {
+        if ( curIdx + 1 > itemSize - 1 ) {
+            curIdx = 0
+        } else {
+            curIdx++
+        }
+        slider.render()
+    }
+    render() {
+    }
+}
+
+const controller = new Controller(document.querySelector(".controller"))
+
+class IndicatorWrap {
+    $indicatorWrap = null
+
+    constructor(target){
+        this.$indicatorWrap = target
+        this.render()
+    }
+
+    renderIndicator() {
+        for( let i = 0; i < itemSize; i++ ) {
+            
+        }
+    }
+
+    render() {
+
+    }
+}
+class Indicator {
 
 }
