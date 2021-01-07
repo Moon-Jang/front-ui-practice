@@ -10,3 +10,7 @@ export const $ = (selectors) => {
     }
     return document.querySelector(selectors)
 }
+
+export const getMaxIdx = (arr) => {
+    return arr.indexOf(Math.max(arr))
+}
