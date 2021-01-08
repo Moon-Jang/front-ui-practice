@@ -14,3 +14,7 @@ export const $ = (selectors) => {
 export const getMaxIdx = (arr) => {
     return arr.indexOf(Math.max(arr))
 }
+
+export const getMinIdx = (arr) => {
+    return arr.indexOf(Math.min(arr))
+}
