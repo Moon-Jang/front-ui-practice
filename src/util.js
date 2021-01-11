@@ -18,3 +18,5 @@ export const getMaxIdx = (arr) => {
 export const getMinIdx = (arr) => {
     return arr.indexOf(Math.min(arr))
 }
+
+export const test = () => {}
