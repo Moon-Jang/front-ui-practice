@@ -19,4 +19,6 @@ export const getMinIdx = (arr) => {
     return arr.indexOf(Math.min(arr))
 }
 
-export const test = () => {}
+export const test = () => { 
+    let a = 3
+}
