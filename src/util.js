@@ -20,5 +20,5 @@ export const getMinIdx = (arr) => {
 }
 
 export const test = () => { 
-    let a = -1;
+    let a = 1;
 }
