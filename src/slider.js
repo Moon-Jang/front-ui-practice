@@ -108,6 +108,7 @@ class IndicatorWrap {
 class Indicator {
     element = null
 
+    
     constructor(idx) {
         this.idx = idx
         this.render()
