@@ -55,7 +55,6 @@ class Controller {
     $prevBtn = null
     $nextBtn = null
 
-
     constructor(target){
         this.$controller = target
         this.$prevBtn = document.getElementById("prevBtn")
