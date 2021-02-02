@@ -31,7 +31,6 @@ class Item {
     constructor(item,idx) {
         this.item = item
         this.idx = idx
-
         this.render()
     }
     
