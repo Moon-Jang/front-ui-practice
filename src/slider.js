@@ -34,6 +34,7 @@ class Item {
         this.render()
     }
     
+    
     render() {
         const $item = document.createElement("div")
         $item.className = this.idx === curIdx ? `item active` : `item`
