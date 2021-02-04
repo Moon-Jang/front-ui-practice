@@ -22,3 +22,7 @@ export const getMinIdx = (arr) => {
 export const test = () => { 
     let a = 1;
 }
+
+export const parseToInt = (str) => {
+    return +str;
+}
