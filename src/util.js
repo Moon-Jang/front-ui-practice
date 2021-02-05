@@ -1,11 +1,11 @@
 export const clearElement = (element) => {
-    while(element.firstElementChild) {
+    while (element.firstElementChild) {
         element.removeChild(element.firstElementChild)
     }
 }
 export const $ = (selectors) => {
     const selectorAll = document.querySelectorAll(selectors)
-    if ( selectorAll.length > 1 ) {
+    if (selectorAll.length > 1) {
         return selectorAll
     }
     return document.querySelector(selectors)
@@ -17,10 +17,6 @@ export const getMaxIdx = (arr) => {
 
 export const getMinIdx = (arr) => {
     return arr.indexOf(Math.min(arr))
-}
-
-export const test = () => { 
-    let a = 1;
 }
 
 export const parseToInt = (str) => {
