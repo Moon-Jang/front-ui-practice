@@ -21,5 +21,4 @@ export const getMinIdx = (arr) => {
 
 export const parseToInt = (str) => {
     return +str;
-    
 }
