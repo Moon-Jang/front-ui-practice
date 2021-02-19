@@ -1,6 +1,7 @@
 import { clearElement, $ } from "./util.js"
 let curIdx = 0;
 let itemSize = 0;
+
 class Slider {
     $slider = null
 
