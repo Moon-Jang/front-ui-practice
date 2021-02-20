@@ -29,6 +29,7 @@ class Slider {
 class Item {
     element = null
 
+    
     constructor(item,idx) {
         this.item = item
         this.idx = idx
