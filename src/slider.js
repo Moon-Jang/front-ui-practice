@@ -5,7 +5,7 @@ let itemSize = 0;
 class Slider {
     $slider = null
 
-    constructor(target,items){
+    constructor(target, items) {
         this.items = items
         this.$slider = target
         itemSize = items.length
@@ -15,8 +15,8 @@ class Slider {
     renderItems() {
         console.log(this.items)
         clearElement(this.$slider)
-        this.items.forEach( (item,idx) => {
-            const $item = new Item(item,idx).element
+        this.items.forEach((item, idx) => {
+            const $item = new Item(item, idx).element
             this.$slider.appendChild($item)
         })
     }
@@ -29,14 +29,13 @@ class Slider {
 class Item {
     element = null
 
-    
-    constructor(item,idx) {
+    constructor(item, idx) {
         this.item = item
         this.idx = idx
         this.render()
     }
-    
-    
+
+
     render() {
         const $item = document.createElement("div")
         $item.className = this.idx === curIdx ? `item active` : `item`
@@ -57,16 +56,16 @@ class Controller {
     $prevBtn = null
     $nextBtn = null
 
-    constructor(target){
+    constructor(target) {
         this.$controller = target
         this.$prevBtn = document.getElementById("prevBtn")
         this.$nextBtn = document.getElementById("nextBtn")
-        this.$prevBtn.addEventListener("click",this.clickPrevBtn)
-        this.$nextBtn.addEventListener("click",this.clickNextBtn)
+        this.$prevBtn.addEventListener("click", this.clickPrevBtn)
+        this.$nextBtn.addEventListener("click", this.clickNextBtn)
         this.render()
     }
     clickPrevBtn(e) {
-        if ( curIdx - 1 < 0 ) {
+        if (curIdx - 1 < 0) {
             curIdx = itemSize - 1
         } else {
             curIdx--
@@ -75,7 +74,7 @@ class Controller {
         indicators.render()
     }
     clickNextBtn(e) {
-        if ( curIdx + 1 > itemSize - 1 ) {
+        if (curIdx + 1 > itemSize - 1) {
             curIdx = 0
         } else {
             curIdx++
@@ -84,20 +83,20 @@ class Controller {
         indicators.render()
     }
 
-    render() {}
+    render() { }
 }
 
 class IndicatorWrap {
     $indicatorWrap = null
 
-    constructor(target){
+    constructor(target) {
         this.$indicatorWrap = target
         this.render()
     }
 
     renderIndicator() {
         clearElement(this.$indicatorWrap)
-        for( let i = 0; i < itemSize; i++ ) {
+        for (let i = 0; i < itemSize; i++) {
             const indicator = new Indicator(i)
             this.$indicatorWrap.appendChild(indicator.element)
         }
@@ -114,7 +113,7 @@ class Indicator {
         this.idx = idx
         this.render()
     }
-    
+
     render() {
         const $indicator = document.createElement("li")
         $indicator.className = this.idx === curIdx ? `indicator selected` : `indicator`
@@ -122,6 +121,6 @@ class Indicator {
     }
 }
 
-const slider = new Slider($(".slider"),images)
+const slider = new Slider($(".slider"), images)
 const indicators = new IndicatorWrap($(".indicators"))
 const controller = new Controller($(".controller"))
