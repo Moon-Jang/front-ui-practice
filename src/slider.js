@@ -24,6 +24,7 @@ class Slider {
     render() {
         this.renderItems()
     }
+    
 }
 
 class Item {
