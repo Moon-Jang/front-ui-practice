@@ -20,6 +20,7 @@ class Slider {
             this.$slider.appendChild($item)
         })
     }
+    
     render() {
         this.renderItems()
     }
