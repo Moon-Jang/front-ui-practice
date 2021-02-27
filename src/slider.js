@@ -21,7 +21,6 @@ class Slider {
         })
     }
 
-    
     render() {
         this.renderItems()
     }
