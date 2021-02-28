@@ -8,6 +8,7 @@ export const $ = (selectors) => {
     if (selectorAll.length > 1) {
         return selectorAll
     }
+    
     return document.querySelector(selectors)
 }
 
