@@ -9,7 +9,6 @@ export const $ = (selectors) => {
         return selectorAll
     }
     
-    
     return document.querySelector(selectors)
 }
 
