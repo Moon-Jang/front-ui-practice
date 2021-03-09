@@ -73,6 +73,7 @@ class Controller {
         }
         slider.render()
         indicators.render()
+        
     }
     clickNextBtn(e) {
         if (curIdx + 1 > itemSize - 1) {
